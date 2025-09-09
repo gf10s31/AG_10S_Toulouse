@@ -13,12 +13,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          submodules: recursive  # pas de submodules pour public
+          submodules: recursive  # récupère Ananke
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: '0.150.0'
+          extended: true  # <--- Hugo Extended nécessaire pour Ananke
 
       - name: Build site
         run: hugo --minify
