@@ -3,23 +3,24 @@ name: Deploy Hugo site to GitHub Pages
 on:
   push:
     branches:
-      - main  # Branche où tu écris ton contenu
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
         with:
-          submodules: true  # pour le thème
+          submodules: recursive  # seulement le thème
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.150.0'  # ta version Hugo
+          hugo-version: '0.150.0'
 
-      - name: Build
+      - name: Build site
         run: hugo --minify
 
       - name: Deploy to GitHub Pages
