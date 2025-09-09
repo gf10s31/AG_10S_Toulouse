@@ -1,0 +1,4 @@
+baseURL = "http://example.org/"
+languageCode = "fr-fr"
+title = "10 septembre Toulouse"
+theme = "ananke"
