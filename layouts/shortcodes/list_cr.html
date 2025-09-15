@@ -1,19 +1,24 @@
-{{/* Shortcode : {{< list_cr "comptes_rendus" >}} */}}
+{{/* Shortcode : {{<list_cr "comptes_rendus">}} */}}
 
 {{- $base := .Get 0 -}}
-{{- $files := readDir (printf "static/%s" $base) -}}
 
-<ul>
-  {{- range $files -}}
-    {{- if .IsDir -}}
-      <li>
-        📂 {{ .Name }}
-        {{< list_cr (printf "%s/%s" $base .Name) >}}
-      </li>
-    {{- else if strings.HasSuffix .Name ".pdf" -}}
-      <li>
-        📄 <a href="/{{ $base }}/{{ .Name }}">{{ .Name }}</a>
-      </li>
+{{- $walk := func ( $path string ) -}}
+  {{- $files := readDir (printf "static/%s" $path) -}}
+  <ul>
+    {{- range $files -}}
+      {{- if .IsDir -}}
+        <li>
+          📂 {{ .Name }}
+          {{ $sub := printf "%s/%s" $path .Name }}
+          {{ $walk $sub }}
+        </li>
+      {{- else if strings.HasSuffix .Name ".pdf" -}}
+        <li>
+          📄 <a href="/{{ $path }}/{{ .Name }}">{{ .Name }}</a>
+        </li>
+      {{- end -}}
     {{- end -}}
-  {{- end -}}
-</ul>
+  </ul>
+{{- end -}}
+
+{{- $walk $base -}}
