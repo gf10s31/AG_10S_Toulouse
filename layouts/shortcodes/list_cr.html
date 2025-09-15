@@ -1,7 +1,6 @@
 {{/* Shortcode : {{< list_cr "comptes_rendus" >}} */}}
 
 {{- $base := .Get 0 -}}
-
 {{- $files := readDir (printf "static/%s" $base) -}}
 
 <ul>
@@ -9,7 +8,7 @@
     {{- if .IsDir -}}
       <li>
         📂 {{ .Name }}
-        {{< listpdf (printf "%s/%s" $base .Name) >}}
+        {{< list_cr (printf "%s/%s" $base .Name) >}}
       </li>
     {{- else if strings.HasSuffix .Name ".pdf" -}}
       <li>
