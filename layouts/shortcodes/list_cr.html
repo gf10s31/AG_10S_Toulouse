@@ -1,24 +1,3 @@
-{{/* Shortcode : {{<list_cr "comptes_rendus">}} */}}
+{{/* Usage: {{< list_cr "comptes_rendus" >}} */}}
+{{ partial "list_html_recursive.html" (dict "Dir" (.Get 0) "Ctx" .) }}
 
-{{- $base := .Get 0 -}}
-
-{{- $walk := func ( $path string ) -}}
-  {{- $files := readDir (printf "static/%s" $path) -}}
-  <ul>
-    {{- range $files -}}
-      {{- if .IsDir -}}
-        <li>
-          📂 {{ .Name }}
-          {{ $sub := printf "%s/%s" $path .Name }}
-          {{ $walk $sub }}
-        </li>
-      {{- else if strings.HasSuffix .Name ".pdf" -}}
-        <li>
-          📄 <a href="/{{ $path }}/{{ .Name }}">{{ .Name }}</a>
-        </li>
-      {{- end -}}
-    {{- end -}}
-  </ul>
-{{- end -}}
-
-{{- $walk $base -}}
