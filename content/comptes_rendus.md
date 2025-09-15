@@ -6,4 +6,4 @@ title: "Comptes rendus"
 
 Téléchargez les comptes rendus ci-dessous :
 
-- [pdftest](comptes_rendus/PDF_TestPage.pdf)
+{{< listpdf "comptes_rendus" >}}

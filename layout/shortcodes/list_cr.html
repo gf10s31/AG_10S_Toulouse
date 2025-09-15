@@ -1,0 +1,20 @@
+{{/* Shortcode : {{< listpdf "comptes_rendus" >}} */}}
+
+{{- $base := .Get 0 -}}
+
+{{- $files := readDir (printf "static/%s" $base) -}}
+
+<ul>
+  {{- range $files -}}
+    {{- if .IsDir -}}
+      <li>
+        📂 {{ .Name }}
+        {{< listpdf (printf "%s/%s" $base .Name) >}}
+      </li>
+    {{- else if strings.HasSuffix .Name ".pdf" -}}
+      <li>
+        📄 <a href="/{{ $base }}/{{ .Name }}">{{ .Name }}</a>
+      </li>
+    {{- end -}}
+  {{- end -}}
+</ul>
