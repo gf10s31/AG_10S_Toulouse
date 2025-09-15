@@ -6,4 +6,4 @@ title: "Comptes rendus"
 
 Téléchargez les comptes rendus ci-dessous :
 
-{{< listpdf "comptes_rendus" >}}
+{{< list_cr "comptes_rendus" >}}
