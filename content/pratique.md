@@ -1,5 +1,5 @@
 ---
-title: "Explication d’une pratique"
+title: "Guide de facilitation et d'animation des AG"
 ---
 
 # Explication
