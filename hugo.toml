@@ -1,4 +1,4 @@
 baseURL = "https://gf10s31.github.io/AG_10S_Toulouse/"
-languageCode = "fr-fr"
-title = "10 septembre Toulouse"
+title = "10 septembre et après Toulouse"
 theme = "ananke"
+canonifyURLs = true

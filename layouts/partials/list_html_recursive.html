@@ -8,13 +8,16 @@
   <ul>
     {{- range $files -}}
       {{- if .IsDir -}}
-        <li>📂 {{ .Name }}
-          {{ partial "list_html_recursive.html" (dict "Dir" (printf "%s/%s" $dir .Name) "Ctx" $ctx) }}
+        <li>
+          <details>
+            <summary>📂 {{ .Name }}</summary>
+            {{ partial "list_html_recursive.html" (dict "Dir" (printf "%s/%s" $dir .Name) "Ctx" $ctx) }}
+          </details>
         </li>
       {{- else if strings.HasSuffix .Name ".html" -}}
         <li>
           📄 
-          <a class="btn" href="/{{ $dir }}/{{ .Name }}" target="_blank">{{ .Name }}</a>
+          <a class="btn" href="{{ printf "%s%s/%s" $.Site.BaseURL ($dir | replaceRE "^static/" "") .Name | absURL }}" target="_blank">{{ .Name }}</a>
         </li>
       {{- end -}}
     {{- end -}}

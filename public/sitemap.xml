@@ -2,16 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/AG_10S_Toulouse/</loc>
+    <loc>https://gf10s31.github.io/AG_10S_Toulouse/</loc>
   </url><url>
-    <loc>http://localhost:1313/AG_10S_Toulouse/categories/</loc>
+    <loc>https://gf10s31.github.io/AG_10S_Toulouse/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/AG_10S_Toulouse/comptes_rendus/</loc>
-  </url><url>
-    <loc>http://localhost:1313/AG_10S_Toulouse/pratique/</loc>
-  </url><url>
-    <loc>http://localhost:1313/AG_10S_Toulouse/infographie/</loc>
-  </url><url>
-    <loc>http://localhost:1313/AG_10S_Toulouse/tags/</loc>
+    <loc>https://gf10s31.github.io/AG_10S_Toulouse/tags/</loc>
   </url>
 </urlset>
